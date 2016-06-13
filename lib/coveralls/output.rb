@@ -1,6 +1,6 @@
 module Coveralls
   #
-  # Public: Methods for formatting strings with Term::ANSIColor.
+  # Public: Methods for formatting strings with ANSITerm::ANSIColor.
   # Does not utilize monkey-patching and should play nicely when
   # included with other libraries.
   #
@@ -45,12 +45,12 @@ module Coveralls
     end
 
     # Public: Formats the given string with the specified color
-    # through Term::ANSIColor
+    # through ANSITerm::ANSIColor
     #
     # string  - the text to be formatted
     # options - The hash of options used for formatting the text:
     #           :color - The color to be passed as a method to
-    #                    Term::ANSIColor
+    #                    ANSITerm::ANSIColor
     #
     # Examples
     #
@@ -63,8 +63,8 @@ module Coveralls
         require 'term/ansicolor'
         if options[:color]
           options[:color].split(/\s/).reverse_each do |color|
-            if Term::ANSIColor.respond_to?(color.to_sym)
-              string = Term::ANSIColor.send(color.to_sym, string)
+            if ANSITerm::ANSIColor.respond_to?(color.to_sym)
+              string = ANSITerm::ANSIColor.send(color.to_sym, string)
             end
           end
         end
@@ -77,7 +77,7 @@ module Coveralls
     # string  - the text to be formatted
     # options - The hash of options used for formatting the text:
     #           :color - The color to be passed as a method to
-    #                    Term::ANSIColor
+    #                    ANSITerm::ANSIColor
     #
     #
     # Example
@@ -95,7 +95,7 @@ module Coveralls
     # string  - the text to be formatted
     # options - The hash of options used for formatting the text:
     #           :color - The color to be passed as a method to
-    #                    Term::ANSIColor
+    #                    ANSITerm::ANSIColor
     #
     # Example
     #
